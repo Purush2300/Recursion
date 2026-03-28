@@ -1,14 +1,16 @@
 public class Rec1 {
-    static void fun(int a){
-        if(a==0){
-            return;
+    static int fun(int a){
+        if(a==1){
+            return 0;
         }
-        fun(a-1);
-        System.out.println(a+" ");
+       
+        return a+fun(a-1);
+       
         
     }
     public static void main(String[] args) {
-        int a=3;
-        fun(a);
+        int a=5;
+        int j=fun(a);
+         System.out.println(j);
     }
 }
