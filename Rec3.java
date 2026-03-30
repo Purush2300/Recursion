@@ -1,16 +1,20 @@
 public class Rec3 {
     public static void main(String[] args) {
-        String a = "...good..morning...";
+        String a = "Too hot to hoot";
         String t = "";
+for (int i = 0; i < a.length(); i++) {
+    char ch = a.charAt(i);
+    if(ch>='A' && ch<='Z'){
+        t=t+(char)ch+32;
+    }
+    else if(ch==' ' && (ch>='0' && ch<='9')){
 
-        for (int i = a.length() - 1; i >= 0; i--) {
-            char ch = a.charAt(i);
-            if (ch != '.') {
-                t += ch;   // add letters
-            } else if (t.length() > 0 && t.charAt(t.length() - 1) != '.') {
-                t += ch;   // add dot only if previous char in t is not dot
-            }
-        }
+    }
+    else{
+        t=t+ch;
+    }
+}
+      
 
         System.out.println(t);
     }
