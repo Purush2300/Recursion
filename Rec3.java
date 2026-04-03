@@ -1,15 +1,23 @@
 public class Rec3 {
     public static void main(String[] args) {
-       int []a={4,5,6,1,2,3};
-       int k=a.length;
-       int count=0;
-       for (int i = 0; i < a.length; i++) {
-        if(a[i]>a[(i+1)%k]){
-            count++;
-        }
-       }
-       System.out.println(count<=1);
-    }
+     int[] a = {0,0,3,53,2,3,4,0,7};
+int j = 0;
 
+for (int i = 0; i < a.length; i++) {
+    if (a[i] != 0) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+        j++;
     }
+}
+     
+      for (int j2 = 0; j2 < a.length; j2++) {
+        System.out.println(a[j2]);
+      }
+    }
+    }
+   
+
+    
 
