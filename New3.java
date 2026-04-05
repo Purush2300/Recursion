@@ -1,30 +1,19 @@
+import java.util.HashMap;
+
 public class New3 {
     public static void main(String[] args) {
-        int []a={2,2,3,2,2,4};
-        System.out.println(majority(a));
-    }
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int[] a = {2,2,3,2,2,4};
 
-    private static int majority(int[] a) {
-
-
-        int n=a.length;
         for (int i = 0; i < a.length; i++) {
-            int count=0;
-            for (int j = 0; j < a.length; j++) {
-                if(a[i]==a[j]){
-                    count++;
-                }
-            }
-            if(count>(n/2)){
-               
-                return a[i];
+            map.put(a[i], map.getOrDefault(a[i], 0) + 1);
+
+            if (map.get(a[i]) > a.length / 2) {
+                System.out.println("Majority element: " + a[i]);
+                return; // allowed → exits main
             }
         }
-      
 
-        return 0;
-        
-        
+        System.out.println("No majority element");
     }
-
 }
