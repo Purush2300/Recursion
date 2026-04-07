@@ -1,17 +1,21 @@
 public class New4 {
     public static void main(String[] args) {
-        int []a={1,2,3,-2,-5,9,6,2,3,-1,-2};
-        int maxsum=Integer.MIN_VALUE;
-        int sum=0;
-        for (int i = 0; i < a.length; i++) {
-            sum+=a[i];
-            if(sum<0){
-                sum=0;
+        int []a={3,1,-2,-5,-6,2};
+        int []ans=new int[a.length];
+        int p=0;
+        int n=1;
+        for (int i = 0; i < ans.length; i++) {
+            if(a[i]>0){
+                ans[p]=a[i];
+                p+=2;
             }
             else{
-                maxsum=Math.max(maxsum, sum);
+                ans[n]=a[i];
+                n+=2;
             }
         }
-        System.out.println(maxsum);
+        for (int i = 0; i < ans.length; i++) {
+            System.out.print(ans[i]+" ");
+        }
     }
 }
