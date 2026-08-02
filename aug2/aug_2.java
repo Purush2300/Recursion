@@ -1,11 +1,13 @@
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class aug_2 {
+   static HashMap<Integer, Integer> map=new HashMap<>();
     public static void main(String[] args) {
-        int[]arr={3,2,3,2,4,3};
-        System.out.println(maxFreqAndMinFreq(arr));
+        int[]arr={1,2,3,1};
+        int k=3;
+        System.out.println(equalDistance(arr,k));
+        // System.out.println(maxFreqAndMinFreq(arr));
         // int[]arr1={1,4,6};
         // int[]arr2={2,3,5};
         // unionOfTwoArray(arr1,arr2);
@@ -85,32 +87,48 @@ public class aug_2 {
     //    }
     // }
 
-    private static String maxFreqAndMinFreq(int[] arr) {
-        HashMap<Integer,Integer>map=new HashMap<>();
-       int maxFrequency=0;
-       int minFrequency=0;
-       int maxValue=Integer.MIN_VALUE;
-       int minValue=Integer.MAX_VALUE;
-       for(int i=0;i<arr.length;i++){
-        map.put(arr[i], map.getOrDefault(arr[i], 0)+1);
-       }
+    // private static String maxFreqAndMinFreq(int[] arr) {
+    //     HashMap<Integer,Integer>map=new HashMap<>();
+    //    int maxFrequency=0;
+    //    int minFrequency=0;
+    //    int maxValue=Integer.MIN_VALUE;
+    //    int minValue=Integer.MAX_VALUE;
+    //    for(int i=0;i<arr.length;i++){
+    //     map.put(arr[i], map.getOrDefault(arr[i], 0)+1);
+    //    }
 
-       for (Map.Entry<Integer, Integer> en : map.entrySet()) {
-           Integer key = en.getKey();
-           Integer val = en.getValue();
+    //    for (Map.Entry<Integer, Integer> en : map.entrySet()) {
+    //        Integer key = en.getKey();
+    //        Integer val = en.getValue();
            
-           if(val>maxValue){
-            maxValue=val;
-            maxFrequency=key;
+    //        if(val>maxValue){
+    //         maxValue=val;
+    //         maxFrequency=key;
 
-           }
-           if(val<minValue){
-            minValue=val;
-            minFrequency=key;
-           }
+    //        }
+    //        if(val<minValue){
+    //         minValue=val;
+    //         minFrequency=key;
+    //        }
 
 
-       }
-       return "maxFreq->  "+maxValue+ " maxValue-> "+maxFrequency+" minFreq-> "+minValue+" minValue-> "+minFrequency;
+    //    }
+    //    return "maxFreq->  "+maxValue+ " maxValue-> "+maxFrequency+" minFreq-> "+minValue+" minValue-> "+minFrequency;
+    // }
+
+    private static boolean equalDistance(int[] arr, int k) {
+        
+
+        for(int i=0;i<arr.length;i++){
+            if(map.containsKey(arr[i])){
+               int p= i-map.get(arr[i]);
+               System.out.println(p);
+            if(p==k){
+                return true;
+            }
+            }
+            map.put(arr[i], i);
+        }
+        return false;
     }
 }
