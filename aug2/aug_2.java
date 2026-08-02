@@ -4,9 +4,10 @@ import java.util.HashMap;
 public class aug_2 {
    static HashMap<Integer, Integer> map=new HashMap<>();
     public static void main(String[] args) {
-        int[]arr={1,2,3,1};
-        int k=3;
-        System.out.println(equalDistance(arr,k));
+        int[]arr={3,2,1,2,5};
+        int k=4;
+        System.out.println(sumEqualToK(arr,k));
+        // System.out.println(equalDistance(arr,k));
         // System.out.println(maxFreqAndMinFreq(arr));
         // int[]arr1={1,4,6};
         // int[]arr2={2,3,5};
@@ -116,19 +117,31 @@ public class aug_2 {
     //    return "maxFreq->  "+maxValue+ " maxValue-> "+maxFrequency+" minFreq-> "+minValue+" minValue-> "+minFrequency;
     // }
 
-    private static boolean equalDistance(int[] arr, int k) {
+    // private static boolean equalDistance(int[] arr, int k) {
         
 
+    //     for(int i=0;i<arr.length;i++){
+    //         if(map.containsKey(arr[i])){
+    //            int p= i-map.get(arr[i]);
+    //            System.out.println(p);
+    //         if(p==k){
+    //             return true;
+    //         }
+    //         }
+    //         map.put(arr[i], i);
+    //     }
+    //     return false;
+    // }
+
+    private static int sumEqualToK(int[] arr, int k) {
+
+        int cnt=0;
         for(int i=0;i<arr.length;i++){
-            if(map.containsKey(arr[i])){
-               int p= i-map.get(arr[i]);
-               System.out.println(p);
-            if(p==k){
-                return true;
-            }
+            if(map.containsKey(k-arr[i])){
+                cnt++;
             }
             map.put(arr[i], i);
         }
-        return false;
+       return cnt;
     }
 }
