@@ -18,10 +18,10 @@ if(a[i]>=0){
     }
 }     
 
-        // Step 4: reverse right part
+        
         reverse(a, i + 1, n - 1);
 
-        // ✅ PRINT RESULT
+      
         for (int num : a) {
             System.out.print(num + " ");
         }
